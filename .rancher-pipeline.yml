@@ -1,0 +1,20 @@
+stages:
+- name: push to remote
+  steps:
+  - publishCatalogConfig:
+      path: ./
+      catalogTemplate: hah
+      version: v1
+      gitUrl: http://173.230.153.8:3000/jiaqi/helm-chart-test.git
+      gitBranch: master
+      gitAuthor: jiai
+      gitEmail: jai@gogel.com
+    envFrom:
+    - sourceName: gogs-key
+      sourceKey: USERNAME
+      targetKey: USERNAME
+    - sourceName: gogs-key
+      sourceKey: PASSWORD
+      targetKey: PASSWORD
+timeout: 60
+notification: {}
